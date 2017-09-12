@@ -19,9 +19,12 @@ export class ProductosService {
 
       this.http.get("https://lamparasypantallasweb.firebaseio.com/productos_idx.json")
         .subscribe( res => {
-            console.log(res.json());
-            this.cargando_productos = false;
-            this.productos = res.json();
+            //console.log(res.json());
+            //setTimeout(()=>{
+              this.cargando_productos = false;
+              this.productos = res.json();
+            //},1500);
+
 
         });
 
