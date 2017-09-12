@@ -5,9 +5,17 @@ import { Http } from "@angular/http";
 export class InformacionService {
 
   info:any = {};
-  cargada:boolean = false;
+  cargada:boolean = false;//bandera, información cargada
+  cargada_sobre_nosotros:boolean = false;//bandera, información cargada
+  equipo:any[] = [];
 
   constructor( public http:Http ) {
+    this.carga_info();
+    this.carga_sobre_nosotros();
+  }
+
+//carga la información de la página.
+  public carga_info(){
     this.http.get("assets/data/info.pagina.json")
       .subscribe(
         data => {
@@ -15,7 +23,19 @@ export class InformacionService {
             this.cargada = true;
             this.info = data.json();
 
-        })
+        });
+  }
+
+//cargo la información sobre nosotros desde firebase
+  public carga_sobre_nosotros(){
+    this.http.get("https://lamparasypantallasweb.firebaseio.com/equipo.json")
+      .subscribe(
+        data => {
+            console.log(data.json());
+            this.cargada_sobre_nosotros = true;
+            this.equipo = data.json();
+
+        });
   }
 
 }
