@@ -13,6 +13,12 @@ export class ProductosService {
 
   }
 
+  public cargar_producto( cod:string ){
+
+    return this.http.get(`https://lamparasypantallasweb.firebaseio.com/productos/${ cod }.json`);
+
+  }
+
   public cargar_productos(){
 
     this.cargando_productos = true;

@@ -4,6 +4,10 @@
   animation-fill-mode: both;
 }
 
+.img-trp{
+  opacity: 0.5;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
