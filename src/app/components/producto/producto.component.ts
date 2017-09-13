@@ -15,8 +15,8 @@ export class ProductoComponent {
   producto:any = undefined;
   cod:string = undefined;
 
-  constructor( private route:ActivatedRoute,
-                private _ps:ProductosService){
+  constructor( public route:ActivatedRoute,
+                public _ps:ProductosService){
 
     //obtener el parametro por URL
     route.params.subscribe( parametros => {
